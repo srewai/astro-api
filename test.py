@@ -1,5 +1,9 @@
-def sum1(a,b):
-    return a+b
+def sum1(c: int,b: int):
+    '''
+
+    '''
+    # returns the sum of two input
+    return c+b
 
 
 if __name__ == "__main__":
