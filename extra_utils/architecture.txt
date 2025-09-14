@@ -1,0 +1,80 @@
+astro-api/
+├─ apps/
+│  ├─ api/                      
+│  │  ├─ main.py
+│  │  ├─ routes/
+│  │  │  ├─ campaigns.py
+│  │  │  ├─ ideas.py
+│  │  │  ├─ webhooks.py
+│  │  │  └─ publish.py
+│  │  ├─ deps.py
+│  │  └─ security.py
+│  ├─ worker/                   
+│  │  ├─ celery_app.py
+│  │  ├─ tasks/
+│  │  │  ├─ llm.py
+│  │  │  ├─ video.py
+│  │  │  ├─ publish.py
+│  │  │  └─ maintenance.py
+│  │  └─ beat_schedule.py
+│  └─ admin/                     
+│     └─ main.py
+├─ packages/
+│  ├─ domain/
+│  │  ├─ models.py               
+│  │  ├─ schemas.py              
+│  │  ├─ state.py                
+│  │  └─ validations.py
+│  ├─ ports/
+│  │  ├─ llm.py
+│  │  ├─ video.py
+│  │  └─ social.py
+│  ├─ adapters/
+│  │  ├─ llm/
+│  │  │  ├─ openai_llm.py
+│  │  │  └─ anthropic_llm.py
+│  │  ├─ video/
+│  │  │  ├─ runway.py
+│  │  │  └─ pika.py
+│  │  └─ social/
+│  │     ├─ youtube.py
+│  │     ├─ tiktok.py
+│  │     └─ instagram.py
+│  ├─ services/
+│  │  ├─ orchestrators.py       
+│  │  ├─ prompts.py             
+│  │  ├─ storage.py             
+│  │  ├─ ffmpeg.py              
+│  │  └─ moderation.py
+│  ├─ db/
+│  │  ├─ session.py
+│  │  └─ alembic/
+│  │     ├─ env.py
+│  │     └─ versions/           
+│  ├─ config/
+│  │  ├─ settings.py
+│  │  └─ logging.py
+│  └─ utils/
+│     ├─ ids.py
+│     ├─ retry.py
+│     └─ otel.py
+├─ infra/
+│  ├─ docker-compose.yml
+│  ├─ Dockerfile.api
+│  ├─ Dockerfile.worker
+│  ├─ k8s/      
+│  │  └─ test.py                 
+│  └─ terraform/                 
+│     └─ test.py                 
+├─ scripts/
+│  ├─ seed_demo.py
+│  └─ create_campaign_from_cli.py
+├─ tests/
+│  ├─ test_llm_adapter.py
+│  ├─ test_video_adapter.py
+│  └─ test_publishers.py
+├─ .env.example
+├─ pyproject.toml
+├─ README.md
+└─ LICENSE
+
