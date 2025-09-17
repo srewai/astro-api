@@ -1,0 +1,78 @@
+astro-api/
+├─ apps/
+│  ├─ api/                       # FastAPI app
+│  │  ├─ main.py
+│  │  ├─ routes/
+│  │  │  ├─ campaigns.py
+│  │  │  ├─ ideas.py
+│  │  │  ├─ webhooks.py
+│  │  │  └─ publish.py
+│  │  ├─ deps.py
+│  │  └─ security.py
+│  ├─ worker/                    # Celery workers
+│  │  ├─ celery_app.py
+│  │  ├─ tasks/
+│  │  │  ├─ llm.py
+│  │  │  ├─ video.py
+│  │  │  ├─ publish.py
+│  │  │  └─ maintenance.py
+│  │  └─ beat_schedule.py
+│  └─ admin/                     # Optional: FastAPI-Admin / simple UI
+│     └─ main.py
+├─ packages/
+│  ├─ domain/
+│  │  ├─ models.py               # SQLAlchemy models
+│  │  ├─ schemas.py              # Pydantic schemas
+│  │  ├─ state.py                # enums / state machines
+│  │  └─ validations.py
+│  ├─ ports/
+│  │  ├─ llm.py
+│  │  ├─ video.py
+│  │  └─ social.py
+│  ├─ adapters/
+│  │  ├─ llm/
+│  │  │  ├─ openai_llm.py
+│  │  │  └─ anthropic_llm.py
+│  │  ├─ video/
+│  │  │  ├─ runway.py
+│  │  │  └─ pika.py
+│  │  └─ social/
+│  │     ├─ youtube.py
+│  │     ├─ tiktok.py
+│  │     └─ instagram.py
+│  ├─ services/
+│  │  ├─ orchestrators.py        # higher-level flows
+│  │  ├─ prompts.py              # system/user prompt builders
+│  │  ├─ storage.py              # S3 helpers
+│  │  ├─ ffmpeg.py               # transcode, subtitles
+│  │  └─ moderation.py
+│  ├─ db/
+│  │  ├─ session.py
+│  │  └─ alembic/
+│  │     ├─ env.py
+│  │     └─ versions/            # migrations
+│  ├─ config/
+│  │  ├─ settings.py
+│  │  └─ logging.py
+│  └─ utils/
+│     ├─ ids.py
+│     ├─ retry.py
+│     └─ otel.py
+├─ infra/
+│  ├─ docker-compose.yml
+│  ├─ Dockerfile.api
+│  ├─ Dockerfile.worker
+│  ├─ k8s/                       # optional manifests
+│  └─ terraform/                 # optional IaC
+├─ scripts/
+│  ├─ seed_demo.py
+│  └─ create_campaign_from_cli.py
+├─ tests/
+│  ├─ test_llm_adapter.py
+│  ├─ test_video_adapter.py
+│  └─ test_publishers.py
+├─ .env.example
+├─ pyproject.toml
+├─ README.md
+└─ LICENSE
+
